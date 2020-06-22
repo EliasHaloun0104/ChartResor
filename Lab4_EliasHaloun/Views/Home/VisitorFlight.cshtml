@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Lab4_EliasHaloun.Models.ModelsResor.Flight>
+
+@{
+    ViewBag.Title = "VisitorFlight";
+}
+
+<h2>VisitorFlight</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Route.Destination.Name)
+        </th><th>
+            @Html.DisplayNameFor(model => model.Route.Destination1.Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Route.Destination.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Route.Destination1.Name)
+        </td>
+    </tr>
+}
+
+</table>

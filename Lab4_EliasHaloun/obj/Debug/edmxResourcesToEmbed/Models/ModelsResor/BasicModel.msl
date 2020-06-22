@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebApplicationForMigrationModelsModelResorModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="Flight_Id" ColumnName="Flight_Id" />
+          <ScalarProperty Name="RentACar_Id" ColumnName="RentACar_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Destinations">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.Destination">
+        <MappingFragment StoreEntitySet="Destinations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flights">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.Flight">
+        <MappingFragment StoreEntitySet="Flights">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fare" ColumnName="Fare" />
+          <ScalarProperty Name="Route_Id" ColumnName="Route_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentACars">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.RentACar">
+        <MappingFragment StoreEntitySet="RentACars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="Fare" ColumnName="Fare" />
+          <ScalarProperty Name="RentalCompany_Id" ColumnName="RentalCompany_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentalCompanies">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.RentalCompany">
+        <MappingFragment StoreEntitySet="RentalCompanies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="WebApplicationForMigration.Models.ModelResorModel.Route">
+        <MappingFragment StoreEntitySet="Routes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DestinationFrom_Id" ColumnName="DestinationFrom_Id" />
+          <ScalarProperty Name="DestinationTo_Id" ColumnName="DestinationTo_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

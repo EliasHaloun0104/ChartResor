@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebApplicationForMigration.Models.ModelResorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserRef" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="IsPaid" Type="bit" Nullable="false" />
+    <Property Name="Flight_Id" Type="int" />
+    <Property Name="RentACar_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Destinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Flights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fare" Type="int" Nullable="false" />
+    <Property Name="Route_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="RentACars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarType" Type="nvarchar(max)" />
+    <Property Name="Fare" Type="int" Nullable="false" />
+    <Property Name="RentalCompany_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="RentalCompanies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Routes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DestinationFrom_Id" Type="int" />
+    <Property Name="DestinationTo_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_Bookings_dbo_Flights_Flight_Id">
+    <End Role="Flights" Type="Self.Flights" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flights">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Flight_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bookings_dbo_RentACars_RentACar_Id">
+    <End Role="RentACars" Type="Self.RentACars" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentACars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="RentACar_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Flights_dbo_Routes_Route_Id">
+    <End Role="Routes" Type="Self.Routes" Multiplicity="0..1" />
+    <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Flights">
+        <PropertyRef Name="Route_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RentACars_dbo_RentalCompanies_RentalCompany_Id">
+    <End Role="RentalCompanies" Type="Self.RentalCompanies" Multiplicity="0..1" />
+    <End Role="RentACars" Type="Self.RentACars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentalCompanies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RentACars">
+        <PropertyRef Name="RentalCompany_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Routes_dbo_Destinations_DestinationFrom_Id">
+    <End Role="Destinations" Type="Self.Destinations" Multiplicity="0..1" />
+    <End Role="Routes" Type="Self.Routes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Routes">
+        <PropertyRef Name="DestinationFrom_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Routes_dbo_Destinations_DestinationTo_Id">
+    <End Role="Destinations" Type="Self.Destinations" Multiplicity="0..1" />
+    <End Role="Routes" Type="Self.Routes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Routes">
+        <PropertyRef Name="DestinationTo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebApplicationForMigrationModelsModelResorModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Destinations" EntityType="Self.Destinations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flights" EntityType="Self.Flights" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentACars" EntityType="Self.RentACars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentalCompanies" EntityType="Self.RentalCompanies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Bookings_dbo_Flights_Flight_Id" Association="Self.FK_dbo_Bookings_dbo_Flights_Flight_Id">
+      <End Role="Flights" EntitySet="Flights" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bookings_dbo_RentACars_RentACar_Id" Association="Self.FK_dbo_Bookings_dbo_RentACars_RentACar_Id">
+      <End Role="RentACars" EntitySet="RentACars" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Flights_dbo_Routes_Route_Id" Association="Self.FK_dbo_Flights_dbo_Routes_Route_Id">
+      <End Role="Routes" EntitySet="Routes" />
+      <End Role="Flights" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RentACars_dbo_RentalCompanies_RentalCompany_Id" Association="Self.FK_dbo_RentACars_dbo_RentalCompanies_RentalCompany_Id">
+      <End Role="RentalCompanies" EntitySet="RentalCompanies" />
+      <End Role="RentACars" EntitySet="RentACars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Routes_dbo_Destinations_DestinationFrom_Id" Association="Self.FK_dbo_Routes_dbo_Destinations_DestinationFrom_Id">
+      <End Role="Destinations" EntitySet="Destinations" />
+      <End Role="Routes" EntitySet="Routes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Routes_dbo_Destinations_DestinationTo_Id" Association="Self.FK_dbo_Routes_dbo_Destinations_DestinationTo_Id">
+      <End Role="Destinations" EntitySet="Destinations" />
+      <End Role="Routes" EntitySet="Routes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

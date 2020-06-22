@@ -1,0 +1,27 @@
+﻿@{
+	ViewBag.Title = "Admin";
+}
+<h2>@ViewBag.Title</h2>
+
+
+<div class="row">
+	<div class="col-md-4">
+		<h2>Getting started</h2>
+		<h6>@Html.ActionLink("Bookings", "Index", "Bookings")</h6>
+		<h6>@Html.ActionLink("Destinations", "Index", "Destinations")</h6>
+		<h6>@Html.ActionLink("Flights", "Index", "Flights")</h6>
+		<h6>@Html.ActionLink("RentACars", "Index", "RentACars")</h6>
+		<h6>@Html.ActionLink("RentalCompanies", "Index", "RentalCompanies")</h6>
+		<h6>@Html.ActionLink("Routes", "Index", "Routes")</h6>
+	</div>
+	
+	<div class="col-md-4">
+		<h2>Reports</h2>
+		<h6>@Html.ActionLink("Number of users", "NumberOfUsers", "AspNetUsers")</h6>
+		<h6>@Html.ActionLink("Number of pictures", "BlobContainerInfo", "AdminBlob")</h6>
+		<h6>@Html.ActionLink("Pictures Info (Owner, Likes, Dislikes, Downloads, Delete)", "BlobContainerInfo", "AdminBlob")</h6>
+		<h6>@Html.ActionLink("Pictures by Customers", "CustomerList", "AspNetUsers")</h6>
+		<h6>@Html.ActionLink("Blob Size on Disk", "BlobSize", "AdminBlob")</h6>
+
+	</div>
+</div>

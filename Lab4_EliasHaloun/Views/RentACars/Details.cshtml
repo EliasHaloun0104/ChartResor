@@ -1,0 +1,42 @@
+﻿@model Lab4_EliasHaloun.Models.ModelsResor.RentACar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RentACar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalCompany.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalCompany.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

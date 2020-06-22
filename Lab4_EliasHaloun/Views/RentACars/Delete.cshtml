@@ -1,0 +1,48 @@
+﻿@model Lab4_EliasHaloun.Models.ModelsResor.RentACar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RentACar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalCompany.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalCompany.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

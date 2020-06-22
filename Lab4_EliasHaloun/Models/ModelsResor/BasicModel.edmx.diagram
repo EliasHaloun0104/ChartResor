@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2480f53a65ae4f1c9065f65bbbf15f03" Name="Diagram1">
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.Booking" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.Destination" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.Flight" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.RentACar" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.RentalCompany" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApplicationForMigration.Models.ModelResorModel.Route" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="WebApplicationForMigration.Models.ModelResorModel.FK_dbo_Bookings_dbo_Flights_Flight_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApplicationForMigration.Models.ModelResorModel.FK_dbo_Bookings_dbo_RentACars_RentACar_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApplicationForMigration.Models.ModelResorModel.FK_dbo_Routes_dbo_Destinations_DestinationFrom_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApplicationForMigration.Models.ModelResorModel.FK_dbo_Routes_dbo_Destinations_DestinationTo_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApplicationForMigration.Models.ModelResorModel.FK_dbo_Flights_dbo_Routes_Route_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApplicationForMigration.Models.ModelResorModel.FK_dbo_RentACars_dbo_RentalCompanies_RentalCompany_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
